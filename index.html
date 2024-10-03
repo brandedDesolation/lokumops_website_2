@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lokum Ops - Elevate Your Business with AWS Cloud & AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-    <div id="particles-js"></div>
     <header>
         <nav class="container">
             <div class="logo">
@@ -30,34 +32,34 @@
 
     <main>
         <section id="hero" class="hero container">
-            <h1>Elevate Your Business</h1>
-            <h2 class="typewriter">with AWS Cloud & AI</h2>
-            <p>Empowering startups and enterprises with cutting-edge cloud migrations and GenAI solutions</p>
-            <a href="#contact" class="cta-button">
+            <h1 data-aos="fade-up">Elevate Your Business</h1>
+            <h2 data-aos="fade-up" data-aos-delay="200">with AWS Cloud & AI</h2>
+            <p data-aos="fade-up" data-aos-delay="400">Empowering startups and enterprises with cutting-edge cloud migrations and GenAI solutions</p>
+            <a href="#contact" class="cta-button" data-aos="fade-up" data-aos-delay="600">
                 <span>Get Started</span>
                 <i data-feather="chevron-right"></i>
             </a>
         </section>
 
         <section id="services" class="container">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title" data-aos="fade-up">Our Services</h2>
             <div class="service-grid">
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up">
                     <i data-feather="cloud"></i>
                     <h3>Cloud Migration</h3>
                     <p>Seamlessly transition your infrastructure to AWS with our expert migration services.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up">
                     <i data-feather="cpu"></i>
                     <h3>GenAI Solutions</h3>
                     <p>Harness the power of generative AI to drive innovation in your business.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up">
                     <i data-feather="shield"></i>
                     <h3>Cloud Security</h3>
                     <p>Implement robust security measures to protect your data and applications.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up">
                     <i data-feather="bar-chart-2"></i>
                     <h3>Performance Optimization</h3>
                     <p>Maximize your cloud infrastructure efficiency and reduce operational costs.</p>
@@ -65,30 +67,30 @@
             </div>
         </section>
 
-        <section id="expertise" class="container">
-            <h2 class="section-title">Our Expertise</h2>
+        <section id="expertise" class="container expertise-section">
+            <h2 class="section-title" data-aos="fade-up">Our Expertise</h2>
             <div class="expertise-grid">
-                <div class="expertise-card">
+                <div class="expertise-card" data-aos="fade-up">
                     <i data-feather="database"></i>
                     <h3>AWS Services</h3>
                 </div>
-                <div class="expertise-card">
+                <div class="expertise-card" data-aos="fade-up">
                     <i data-feather="cpu"></i>
                     <h3>Machine Learning</h3>
                 </div>
-                <div class="expertise-card">
+                <div class="expertise-card" data-aos="fade-up">
                     <i data-feather="git-branch"></i>
                     <h3>DevOps</h3>
                 </div>
-                <div class="expertise-card">
+                <div class="expertise-card" data-aos="fade-up">
                     <i data-feather="layers"></i>
                     <h3>Big Data</h3>
                 </div>
-                <div class="expertise-card">
+                <div class="expertise-card" data-aos="fade-up">
                     <i data-feather="zap"></i>
                     <h3>Serverless</h3>
                 </div>
-                <div class="expertise-card">
+                <div class="expertise-card" data-aos="fade-up">
                     <i data-feather="box"></i>
                     <h3>Microservices</h3>
                 </div>
@@ -108,17 +110,17 @@
                     </ul>
                 </div>
                 <div class="about-image">
-                    <img src="/image.png" alt="Cloud Migration Illustration" width="600" height="400">
+                    <img src="./image.png" alt="Cloud Migration Illustration">
                 </div>
             </div>
         </section>
 
         <section id="contact" class="container">
-            <h2 class="section-title">Get in Touch</h2>
+            <h2 class="section-title" data-aos="fade-up">Get in Touch</h2>
             <p>Ready to elevate your business with AWS Cloud and AI? Contact us now!</p>
-            <a href="mailto:cloud@lokumops.com" class="cta-button">
+            <a href="mailto:your@email.com" class="cta-button email-us-button" data-aos="fade-up" data-aos-delay="600">
                 <span>Email Us</span>
-                <i data-feather="mail"></i>
+                <i data-feather="send"></i>
             </a>
         </section>
     </main>
@@ -136,5 +138,11 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    </script>
 </body>
 </html>

@@ -1,15 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    --aws-orange: #FF9900;
-    --aws-squid-ink: #232F3E;
-    --aws-smile-orange: #FF9900;
-    --aws-anchor: #003181;
-    --aws-sky-blue: #2074BD;
-    --aws-deep-blue: #0073BB;
-    --text-color: #FFFFFF;
-    --background-color: #232F3E;
-    --accent-color: #FF9900;
+    --primary-color: #6c5ce7;
+    --secondary-color: #00b894;
+    --accent-color: #ff7675;
+    --background-color: #f9f9f9;
+    --text-color: #2d3436;
+    --card-background: #ffffff;
 }
 
 * {
@@ -20,14 +17,13 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
     background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
 .container {
-    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -46,7 +42,8 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 20px 0;
-    background: rgba(35, 47, 62, 0.8);
+    background-color: var(--card-background);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
 }
 
@@ -61,12 +58,12 @@ nav {
     align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .logo svg {
     margin-right: 10px;
-    stroke: var(--accent-color);
+    stroke: var(--primary-color);
 }
 
 .nav-links {
@@ -85,7 +82,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .menu-toggle {
@@ -99,26 +96,35 @@ nav {
 
 /* Hero section */
 .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* Remove any background-related properties */
+    background: none;
+    background-color: transparent;
+    /* Add any other styles you want for the hero section */
+    padding: 4rem 0;
     text-align: center;
+    color: #333; /* Adjust text color as needed */
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
-    color: var(--text-color);
 }
 
 .hero h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--text-color);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
 }
 
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Remove or comment out the typewriter class */
+/*
 .typewriter {
     overflow: hidden;
     border-right: 0.15em solid var(--accent-color);
@@ -127,7 +133,10 @@ nav {
     letter-spacing: 0.15em;
     animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
 }
+*/
 
+/* Remove or comment out the typing and blink-caret animations */
+/*
 @keyframes typing {
     from { width: 0 }
     to { width: 100% }
@@ -137,32 +146,53 @@ nav {
     from, to { border-color: transparent }
     50% { border-color: var(--accent-color) }
 }
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 600px;
-}
+*/
 
 .cta-button {
     display: inline-flex;
     align-items: center;
     background-color: var(--accent-color);
-    color: var(--aws-squid-ink);
-    padding: 12px 30px;
+    color: white;
+    padding: 12px 24px;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(255, 153, 0, 0.5);
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .cta-button svg {
     margin-left: 10px;
+}
+
+/* New styles for the Email Us button */
+.email-us-button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border: 2px solid var(--secondary-color);
+}
+
+.email-us-button:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.email-us-button svg {
+    transition: transform 0.3s ease;
+}
+
+.email-us-button:hover svg {
+    transform: rotate(45deg);
 }
 
 /* Sections */
@@ -171,10 +201,10 @@ section {
 }
 
 .section-title {
-    font-size: 2.5rem;
     text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
     margin-bottom: 50px;
-    color: var(--text-color);
 }
 
 .service-grid, .expertise-grid {
@@ -184,25 +214,23 @@ section {
 }
 
 .service-card, .expertise-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background-color: var(--card-background);
+    border-radius: 10px;
     padding: 30px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .service-card:hover, .expertise-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(255, 153, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .service-card svg, .expertise-card svg {
     width: 50px;
     height: 50px;
     margin-bottom: 20px;
-    stroke: var(--accent-color);
+    stroke: var(--primary-color);
 }
 
 .service-card h3, .expertise-card h3 {
@@ -228,12 +256,12 @@ section {
 .benefits-list li {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .benefits-list svg {
-    margin-right: 15px;
-    stroke: var(--accent-color);
+    margin-right: 10px;
+    stroke: var(--secondary-color);
 }
 
 .about-image {
@@ -258,9 +286,9 @@ section {
 
 /* Footer */
 footer {
-    background: rgba(35, 47, 62, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 20px 0;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px 0;
     text-align: center;
 }
 
@@ -269,14 +297,14 @@ footer {
 }
 
 .social-links a {
-    color: var(--text-color);
-    margin: 0 10px;
+    color: white;
     font-size: 1.5rem;
-    transition: color 0.3s ease;
+    margin: 0 10px;
+    transition: opacity 0.3s ease;
 }
 
 .social-links a:hover {
-    color: var(--accent-color);
+    opacity: 0.8;
 }
 
 /* Responsive design */
@@ -305,11 +333,11 @@ footer {
     }
 
     .hero h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .hero h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .about-content {
@@ -318,5 +346,54 @@ footer {
 
     .about-image {
         order: -1;
+    }
+}
+
+body, main {
+    /* Ensure no background is set here either */
+    background: none;
+    background-color: #ffffff; /* or any color you prefer for the page background */
+}
+
+.expertise-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.expertise-section .section-title {
+    margin-bottom: 40px;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.expertise-card {
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Adjust responsive behavior if needed */
+@media (max-width: 768px) {
+    .expertise-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .expertise-grid {
+        gap: 20px;
     }
 }
