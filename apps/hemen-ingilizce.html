@@ -1,267 +1,431 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hemen İngilizce - Learn English Words Fast | iOS App</title>
-    <meta name="description" content="Master English vocabulary with Hemen İngilizce - the fastest way to learn English words on iOS. No ads, no data collection, just pure learning.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="app-styles.css">
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    <title>Hemen İngilizce - iOS Uygulaması</title>
+    <meta name="description" content="Hemen İngilizce iOS uygulaması ile İngilizce kelime öğrenin. Reklamsız, gizlilik odaklı, offline çalışır.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Font loading optimization */
+        @font-face {
+            font-family: 'Inter';
+            font-display: swap;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #1d1d1f;
+            background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-display: swap;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Loading spinner */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f5f5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e5e7eb;
+            border-top: 4px solid #007AFF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+        
+        .ios-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+        }
+        
+        .app-icon-large {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            border-radius: 26px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.25);
+            position: relative;
+        }
+        
+        .app-icon-large::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 26px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude;
+        }
+        
+        .app-title {
+            font-size: 56px;
+            font-weight: 800;
+            color: #1d1d1f;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        
+        .app-subtitle {
+            font-size: 28px;
+            font-weight: 600;
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+        
+        .app-description {
+            font-size: 21px;
+            color: #1d1d1f;
+            margin-bottom: 40px;
+            line-height: 1.4;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .download-section {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+        
+        .app-store-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+        
+        .app-store-button:hover {
+            background: #1c1c1e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .app-store-icon {
+            font-size: 24px;
+        }
+        
+        .download-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .download-small {
+            font-size: 13px;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+        
+        .download-large {
+            font-size: 17px;
+            font-weight: 500;
+        }
+        
+        .features-section {
+            padding: 60px 0;
+            background: #f5f5f7;
+        }
+        
+        .features-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 50px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 18px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.25);
+        }
+        
+        .feature-title {
+            font-size: 21px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+        }
+        
+        .feature-text {
+            font-size: 17px;
+            color: #86868b;
+            line-height: 1.4;
+        }
+        
+        .footer-section {
+            padding: 40px 0;
+            text-align: center;
+            background: #1d1d1f;
+            color: #86868b;
+        }
+        
+        .footer-section a {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer-section a:hover {
+            color: #0056CC;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .app-title {
+                font-size: 40px;
+            }
+            
+            .app-subtitle {
+                font-size: 24px;
+            }
+            
+            .app-description {
+                font-size: 19px;
+            }
+            
+            .features-title {
+                font-size: 32px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i data-feather="book-open"></i>
-                </div>
-                <div class="logo-text">
-                    <span class="logo-name">Hemen İngilizce</span>
-                    <span class="logo-badge">iOS App</span>
-                </div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="../index.html">Back to Lokum Ops</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#privacy">Privacy</a></li>
-                <li><a href="#download">Download</a></li>
-            </ul>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <i data-feather="menu"></i>
-            </button>
-        </nav>
-    </header>
+    <!-- Loading Spinner -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
 
-    <main>
-        <section id="hero" class="hero container">
-            <div class="hero-badge" data-aos="fade-up">
-                <i data-feather="smartphone"></i>
-                <span>Available on iOS</span>
-            </div>
-            <h1 data-aos="fade-up" data-aos-delay="200">Learn English Words</h1>
-            <h2 data-aos="fade-up" data-aos-delay="400">Fast, Simple, Effective</h2>
-            <p data-aos="fade-up" data-aos-delay="600">Master English vocabulary with our beautifully designed iOS app. No ads, no distractions, just pure learning.</p>
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="800">
-                <div class="stat">
-                    <span class="stat-number">1000+</span>
-                    <span class="stat-label">Words</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Ads</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Offline</span>
-                </div>
-            </div>
-            <div class="hero-actions" data-aos="fade-up" data-aos-delay="1000">
-                <a href="https://apps.apple.com/app/hemen-ingilizce" class="cta-button primary" target="_blank">
-                    <i data-feather="download"></i>
-                    <span>Download on App Store</span>
-                </a>
-                <a href="#features" class="cta-button secondary">
-                    <span>Learn More</span>
-                    <i data-feather="arrow-down"></i>
-                </a>
-            </div>
-        </section>
-
-        <section id="features" class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Why Choose Hemen İngilizce?</h2>
-                <p class="section-subtitle">A privacy-first approach to learning English vocabulary</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-card" data-aos="fade-up">
-                    <div class="feature-icon">
-                        <i data-feather="shield"></i>
-                    </div>
-                    <h3>100% Private</h3>
-                    <p>We don't collect any personal data. Your learning progress stays on your device. No tracking, no analytics, no data sharing.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon">
-                        <i data-feather="wifi-off"></i>
-                    </div>
-                    <h3>Works Offline</h3>
-                    <p>Download once and learn anywhere. No internet connection required. Perfect for commutes, flights, or anywhere without WiFi.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon">
-                        <i data-feather="x"></i>
-                    </div>
-                    <h3>No Ads</h3>
-                    <p>Zero advertisements. No interruptions, no distractions. Focus entirely on learning without any commercial interruptions.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-icon">
-                        <i data-feather="zap"></i>
-                    </div>
-                    <h3>Fast Learning</h3>
-                    <p>Spaced repetition algorithm helps you learn words efficiently. Review words at optimal intervals for maximum retention.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-icon">
-                        <i data-feather="book"></i>
-                    </div>
-                    <h3>Rich Content</h3>
-                    <p>Over 1000 carefully selected English words with definitions, examples, and pronunciation guides.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="feature-icon">
-                        <i data-feather="heart"></i>
-                    </div>
-                    <h3>Beautiful Design</h3>
-                    <p>Clean, intuitive interface designed for focus and comfort. Learn in a distraction-free environment.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="privacy" class="privacy-section">
-            <div class="container">
-                <div class="privacy-content" data-aos="fade-up">
-                    <h2 class="section-title">Your Privacy Matters</h2>
-                    <p class="privacy-intro">We believe learning should be private and secure. That's why Hemen İngilizce is designed with privacy at its core.</p>
-                    
-                    <div class="privacy-grid">
-                        <div class="privacy-item">
-                            <i data-feather="check-circle"></i>
-                            <div>
-                                <h3>No Data Collection</h3>
-                                <p>We don't collect, store, or transmit any personal information or learning data.</p>
-                            </div>
-                        </div>
-                        <div class="privacy-item">
-                            <i data-feather="check-circle"></i>
-                            <div>
-                                <h3>No Analytics</h3>
-                                <p>No usage tracking, no analytics, no behavioral data collection.</p>
-                            </div>
-                        </div>
-                        <div class="privacy-item">
-                            <i data-feather="check-circle"></i>
-                            <div>
-                                <h3>No Third Parties</h3>
-                                <p>No data sharing with advertisers, analytics companies, or any third parties.</p>
-                            </div>
-                        </div>
-                        <div class="privacy-item">
-                            <i data-feather="check-circle"></i>
-                            <div>
-                                <h3>Local Storage Only</h3>
-                                <p>All your progress is stored locally on your device and never leaves it.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="privacy-cta">
-                        <a href="hemen-ingilizce-privacy.html" class="cta-button primary">
-                            <span>Read Full Privacy Policy</span>
-                            <i data-feather="arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="download" class="download-section">
-            <div class="container">
-                <div class="download-content" data-aos="fade-up">
-                    <h2 class="section-title">Start Learning Today</h2>
-                    <p class="download-description">Join thousands of learners who trust Hemen İngilizce for their English vocabulary journey.</p>
-                    
-                    <div class="download-options">
-                        <a href="https://apps.apple.com/app/hemen-ingilizce" class="download-button" target="_blank">
-                            <div class="download-icon">
-                                <i data-feather="smartphone"></i>
-                            </div>
-                            <div class="download-text">
-                                <span class="download-title">Download for iOS</span>
-                                <span class="download-subtitle">Available on the App Store</span>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="download-features">
-                        <div class="download-feature">
-                            <i data-feather="shield"></i>
-                            <span>Privacy First</span>
-                        </div>
-                        <div class="download-feature">
-                            <i data-feather="wifi-off"></i>
-                            <span>Works Offline</span>
-                        </div>
-                        <div class="download-feature">
-                            <i data-feather="x"></i>
-                            <span>No Ads</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <div class="hero-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i data-feather="book-open"></i>
-                        <span>Hemen İngilizce</span>
-                    </div>
-                    <p class="footer-description">Learn English vocabulary fast, privately, and effectively with our iOS app.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>App</h4>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#privacy">Privacy</a></li>
-                        <li><a href="#download">Download</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="hemen-ingilizce-privacy.html">Privacy Policy</a></li>
-                        <li><a href="../index.html">Lokum Ops</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i data-feather="mail"></i>
-                            <span>cloud@lokumops.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i data-feather="map-pin"></i>
-                            <span>Made with ❤️ by Lokum Ops</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="ios-badge">
+                <span>📱</span>
+                <span>iOS Uygulaması</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Lokum Ops. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="hemen-ingilizce-privacy.html">Privacy Policy</a>
-                    <a href="../index.html">Lokum Ops</a>
+            
+            <div class="app-icon-large">
+                📚
+            </div>
+            
+            <h1 class="app-title">Hemen İngilizce</h1>
+            <p class="app-subtitle">İngilizce Kelime Öğrenmenin En Hızlı Yolu</p>
+            <p class="app-description">
+                iPhone ve iPad'iniz için tasarlanmış modern İngilizce kelime öğrenme uygulaması. 
+                Reklamsız, gizlilik odaklı ve tamamen çevrimdışı çalışır.
+            </p>
+        </div>
+    </div>
+
+    <div class="download-section">
+        <div class="container">
+            <a href="https://apps.apple.com/us/app/hemen-ingilizce/id6738070684" class="app-store-button" target="_blank">
+                <div class="app-store-icon">🍎</div>
+                <div class="download-text">
+                    <div class="download-small">Download on the</div>
+                    <div class="download-large">App Store</div>
+                </div>
+            </a>
+            <p style="font-size: 17px; color: #86868b; margin-top: 16px;">iOS 14.0 veya üzeri gereklidir</p>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <div class="container">
+            <h2 class="features-title">Neden Hemen İngilizce?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">%100 Gizli</h3>
+                    <p class="feature-text">Hiçbir veri toplamıyoruz. Öğrenme ilerlemeniz cihazınızda kalır.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Çevrimdışı Çalışır</h3>
+                    <p class="feature-text">İnternet bağlantısı gerektirmez. Her yerde öğrenmeye devam edin.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚫</div>
+                    <h3 class="feature-title">Reklamsız</h3>
+                    <p class="feature-text">Hiçbir reklam yok. Sadece öğrenmeye odaklanın.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3 class="feature-title">Zengin İçerik</h3>
+                    <p class="feature-text">Özenle seçilmiş İngilizce kelimeler ve örnekler.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Hızlı Öğrenme</h3>
+                    <p class="feature-text">Etkili tekrar algoritması ile kelimeleri unutmayın.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Modern Tasarım</h3>
+                    <p class="feature-text">iOS için özel tasarlanmış temiz ve güzel arayüz.</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <script src="../script.js"></script>
+    <div class="footer-section">
+        <div class="container">
+            <p>
+                <a href="../index.html">Lokum Ops</a> tarafından geliştirildi • 
+                <a href="hemen-ingilizce-gizlilik.html">Gizlilik Politikası</a> • 
+                <a href="hemen-ingilizce-privacy.html">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
+        // Loading spinner control
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            if (loading) {
+                loading.style.opacity = '0';
+                loading.style.transition = 'opacity 0.3s ease-out';
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 300);
+            }
         });
+
+        // Fallback: Hide loading after 3 seconds
+        setTimeout(function() {
+            const loading = document.getElementById('loading');
+            if (loading && loading.style.display !== 'none') {
+                loading.style.opacity = '0';
+                loading.style.transition = 'opacity 0.3s ease-out';
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 300);
+            }
+        }, 3000);
+
+        // Font loading optimization
+        if ('fonts' in document) {
+            document.fonts.ready.then(function() {
+                document.body.classList.add('fonts-loaded');
+            });
+        }
     </script>
 </body>
 </html>

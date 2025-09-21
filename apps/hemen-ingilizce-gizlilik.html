@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Hemen İngilizce iOS Uygulaması</title>
+    <meta name="description" content="Hemen İngilizce iOS uygulaması gizlilik politikası. Verilerinizi nasıl koruduğumuz ve Firebase Analytics kullanımımız hakkında bilgi.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #6366f1;
+        }
+        
+        .section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        .section p {
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .section ul {
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box h4 {
+            color: #6366f1;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: #6b7280;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #8b5cf6;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #8b5cf6;
+        }
+        
+        strong {
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="hemen-ingilizce.html" class="back-link">
+            ← Uygulama Sayfasına Dön
+        </a>
+        
+        <div class="header">
+            <h1>Gizlilik Politikası</h1>
+            <p>Hemen İngilizce iOS Uygulaması - Gizliliğiniz Önceliğimiz</p>
+        </div>
+        
+        <div class="content">
+            <div class="highlight-box">
+                <h4>
+                    🔒 Gizlilik Odaklı Tasarım
+                </h4>
+                <p>Hemen İngilizce gizliliği ön planda tutacak şekilde tasarlanmıştır. Bu politika, verilerinizle ne yaptığımızı ve yapmadığımızı açıkça belirtir.</p>
+            </div>
+            
+            <div class="section">
+                <h2>1. Topladığımız Bilgiler</h2>
+                <p>Hemen İngilizce, uygulama deneyimini iyileştirmek için minimal, kişisel olmayan bilgiler toplar:</p>
+                
+                <h3>Analitik Veriler (Firebase Analytics)</h3>
+                <p>Kullanıcıların uygulamamızla nasıl etkileşime girdiğini anlamak için Firebase Analytics kullanıyoruz. Firebase Analytics şunları toplar:</p>
+                <ul>
+                    <li>Uygulama içi sayfa görüntülemeleri ve ekran ziyaretleri</li>
+                    <li>Uygulama oturum süresi ve sıklığı</li>
+                    <li>Genel cihaz bilgileri (iOS sürümü, cihaz modeli)</li>
+                    <li>Uygulama çökmeleri ve performans metrikleri</li>
+                    <li>Özellik kullanım desenleri (hangi bölümlerin en çok kullanıldığı)</li>
+                </ul>
+                <p><strong>Önemli:</strong> Bu veriler tamamen anonimdir ve bireysel kullanıcıları tanımlamak için kullanılamaz. Firebase Analytics, isim, e-posta adresi veya öğrenme içeriği gibi kişisel bilgileri toplamaz.</p>
+                
+                <h3>Toplamadığımız Bilgiler</h3>
+                <p>Aşağıdaki bilgileri toplamıyor, saklamıyor veya iletmiyoruz:</p>
+                <ul>
+                    <li>Kişisel kimlik bilgileri (isim, e-posta, telefon numarası)</li>
+                    <li>Öğrenme ilerlemeniz veya performans verileriniz</li>
+                    <li>Çalıştığınız belirli kelimeler veya cevaplarınız</li>
+                    <li>Konum verileri veya kesin IP adresleri</li>
+                    <li>Sizi kişisel olarak tanımlayabilecek herhangi bir veri</li>
+                    <li>Ses kayıtları veya ses verileri</li>
+                    <li>Fotoğraflar veya kamera erişimi</li>
+                    <li>Kişiler veya takvim bilgileri</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>2. Yerel Veri Depolama</h2>
+                <p>Öğrenme ilerlemenizle ilgili tüm veriler yalnızca cihazınızda saklanır:</p>
+                <ul>
+                    <li>Öğrenme ilerlemeniz ve istatistikleriniz iPhone/iPad'inizde yerel olarak saklanır</li>
+                    <li>Kelime listeleri ve içerik bir kez indirilir ve yerel olarak saklanır</li>
+                    <li>Ayarlar ve tercihler yalnızca cihazınızda kaydedilir</li>
+                    <li>Hiçbir veri harici sunucularla senkronize edilmez</li>
+                    <li>Uygulamayı silerek tüm uygulama verilerini silebilirsiniz</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>3. Üçüncü Taraf Hizmetler</h2>
+                <p>Hemen İngilizce, uygulamayı sağlamak ve iyileştirmek için minimal üçüncü taraf hizmetler kullanır:</p>
+                
+                <h3>Firebase Analytics (Google)</h3>
+                <p>Kullanıcıların uygulamamızla nasıl etkileşime girdiğini anlamak için Firebase Analytics kullanıyoruz. Firebase Analytics:</p>
+                <ul>
+                    <li>Anonim kullanım verileri ve uygulama performans metrikleri toplar</li>
+                    <li>Kişisel bilgi veya öğrenme içeriği toplamaz</li>
+                    <li>Kimliğinizle ilişkilendirilemeyen cihaz tanımlayıcıları kullanır</li>
+                    <li>Uygulama kararlılığını ve kullanıcı deneyimini iyileştirmemize yardımcı olur</li>
+                    <li>Apple'ın gizlilik yönergelerine ve GDPR gereksinimlerine uyar</li>
+                </ul>
+                <p>Firebase Analytics gizlilik uygulamaları hakkında daha fazla bilgiyi <a href="https://firebase.google.com/support/privacy">Firebase Gizlilik Politikası</a>'nda bulabilirsiniz.</p>
+                
+                <h3>Kullanmadığımız Hizmetler</h3>
+                <ul>
+                    <li>Reklam ağları veya reklam sunma platformları yok</li>
+                    <li>Sosyal medya entegrasyonları yok</li>
+                    <li>Kişisel veriler için bulut depolama yok</li>
+                    <li>Kullanıcı takibi veya profilleme sistemleri yok</li>
+                    <li>Veri komisyoncuları veya pazarlama platformları yok</li>
+                    <li>E-posta pazarlama veya iletişim hizmetleri yok</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>4. Reklam Yok</h2>
+                <p>Hemen İngilizce tamamen reklamsızdır:</p>
+                <ul>
+                    <li>Banner reklamlar, ara reklamlar veya video reklamlar yok</li>
+                    <li>Sponsorlu içerik veya promosyon materyalleri yok</li>
+                    <li>Reklam amaçlı veri toplama yok</li>
+                    <li>Reklam kişiselleştirmesi için takip yok</li>
+                    <li>Reklam ortakları ile gelir paylaşımı yok</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>5. iOS İzinleri</h2>
+                <p>Hemen İngilizce minimal izinler ister ve yalnızca temel işlevsellik için:</p>
+                <ul>
+                    <li><strong>Mikrofon Erişimi</strong> - Telaffuz pratiği ve konuşma tanıma özellikleri için gereklidir. Ses cihazınızda yerel olarak işlenir ve asla kaydedilmez, saklanmaz veya iletilmez.</li>
+                    <li><strong>Ağ Erişimi</strong> - Yalnızca Firebase Analytics veri iletimi için kullanılır. Tüm öğrenme içeriği tamamen çevrimdışı çalışır.</li>
+                    <li>Kamera veya fotoğraflara erişim yok</li>
+                    <li>Kişiler veya takvime erişim yok</li>
+                    <li>Konum hizmetlerine erişim yok</li>
+                    <li>Bildirimlere erişim yok (etkinleştirmeyi seçmediğiniz sürece)</li>
+                </ul>
+                <p><strong>Not:</strong> Analitik veriler anonim olarak gönderilir ve kimliğiniz veya öğrenme ilerlemenizle ilişkilendirilemez.</p>
+            </div>
+            
+            <div class="section">
+                <h2>6. Veri Güvenliği</h2>
+                <p>Minimal veri topladığımız için güvenlik önlemlerimiz şunları içerir:</p>
+                <ul>
+                    <li>Tüm uygulama verileri iOS'un güvenli depolama mekanizmaları kullanılarak saklanır</li>
+                    <li>Firebase Analytics verileri şifreli bağlantılar üzerinden iletilir</li>
+                    <li>Uygulama güncellemeleri veri toplama değişiklikleri içermez</li>
+                    <li>Cihazınızın yerleşik güvenliği yerel verilerinizi korur</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>7. Çocukların Gizliliği</h2>
+                <p>Hemen İngilizce her yaştan kullanıcı için güvenlidir:</p>
+                <ul>
+                    <li>Minimal veri toplama çocuklar için özel düşünce gerektirmez</li>
+                    <li>Ebeveynler çocuklarının verilerinin gizli kaldığından emin olabilir</li>
+                    <li>Yaş doğrulama veya ebeveyn onayı gerekmez</li>
+                    <li>Uygulama okullarda eğitim amaçlı kullanım için uygundur</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>8. Haklarınız</h2>
+                <p>Minimal veri topladığımız için tam kontrole sahipsiniz:</p>
+                <ul>
+                    <li>Tüm öğrenme verileriniz cihazınızda kalır</li>
+                    <li>Uygulamayı silerek tüm verileri silebilirsiniz</li>
+                    <li>Firebase Analytics'i iOS ayarlarından devre dışı bırakabilirsiniz</li>
+                    <li>Öğrenme verileriniz üzerinde tam gizlilik ve kontrol</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>9. Bu Politikadaki Değişiklikler</h2>
+                <p>Bu gizlilik politikasını değiştirmemiz gerekirse:</p>
+                <ul>
+                    <li>Politikayı App Store listesinde güncelleyeceğiz</li>
+                    <li>Kullanıcıları uygulama güncellemeleri aracılığıyla bilgilendireceğiz</li>
+                    <li>Kişisel veri toplamama taahhüdümüzü sürdüreceğiz</li>
+                    <li>Değişikliklerin net açıklamalarını sağlayacağız</li>
+                </ul>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Bize Ulaşın</h3>
+                <p>Bu gizlilik politikası veya gizlilik uygulamalarımız hakkında sorularınız varsa, lütfen bizimle iletişime geçin:</p>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>E-posta: cloud@lokumops.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>🏢</span>
+                    <span>Şirket: Lokum Ops (Türkiye & BAE)</span>
+                </div>
+                <div class="contact-item">
+                    <span>🌐</span>
+                    <span>Website: <a href="../index.html">lokumops.com</a></span>
+                </div>
+            </div>
+            
+            <div class="last-updated">
+                <p><strong>Son Güncelleme:</strong> Ocak 2025</p>
+                <p>Bu gizlilik politikası yukarıda belirtilen tarihten itibaren geçerlidir ve Hemen İngilizce'nin tüm sürümleri için geçerlidir.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

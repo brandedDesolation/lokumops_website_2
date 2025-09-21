@@ -24,7 +24,7 @@
         }
         
         .privacy-header {
-            text-align: center;
+            text-align: left;
             margin-bottom: 3rem;
             padding: 2rem 0;
         }
@@ -40,7 +40,7 @@
             font-size: 1.25rem;
             color: var(--text-secondary);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0;
         }
         
         .privacy-content {
@@ -62,6 +62,7 @@
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--primary-color);
+            text-align: left;
         }
         
         .privacy-section h3 {
@@ -69,12 +70,14 @@
             font-weight: 600;
             color: var(--text-primary);
             margin: 1.5rem 0 0.75rem 0;
+            text-align: left;
         }
         
         .privacy-section p {
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1rem;
+            text-align: left;
         }
         
         .privacy-section ul {
@@ -82,6 +85,7 @@
             line-height: 1.7;
             margin-bottom: 1rem;
             padding-left: 1.5rem;
+            text-align: left;
         }
         
         .privacy-section li {
@@ -103,6 +107,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-align: left;
         }
         
         .highlight-box p {
@@ -153,12 +158,54 @@
         }
         
         .last-updated {
-            text-align: center;
+            text-align: left;
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid var(--border-color);
+        }
+        
+        /* Language Tabs */
+        .language-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background: var(--surface-color);
+        }
+        
+        .language-tab {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: var(--surface-color);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .language-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .language-tab:hover:not(.active) {
+            background: var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .language-content {
+            display: none;
+        }
+        
+        .language-content.active {
+            display: block;
         }
     </style>
 </head>
@@ -171,11 +218,18 @@
             </a>
             
             <div class="privacy-header">
-                <h1>Privacy Policy</h1>
-                <p>Hemen İngilizce iOS App - Your Privacy is Our Priority</p>
+                <h1>Privacy Policy / Gizlilik Politikası</h1>
+                <p>Hemen İngilizce iOS App - Your Privacy is Our Priority / Gizliliğiniz Önceliğimizdir</p>
+            </div>
+            
+            <div class="language-tabs">
+                <button class="language-tab active" onclick="switchLanguage('en')">English</button>
+                <button class="language-tab" onclick="switchLanguage('tr')">Türkçe</button>
             </div>
             
             <div class="privacy-content">
+                <!-- English Content -->
+                <div id="en-content" class="language-content active">
                 <div class="highlight-box">
                     <h4>
                         <i data-feather="shield"></i>
@@ -185,17 +239,31 @@
                 </div>
                 
                 <div class="privacy-section">
-                    <h2>1. Information We Don't Collect</h2>
-                    <p>We are committed to privacy by design. Hemen İngilizce does not collect, store, or transmit any of the following:</p>
+                    <h2>1. Information We Collect</h2>
+                    <p>Hemen İngilizce collects minimal, non-personal information to improve the app experience:</p>
+                    
+                    <h3>Analytics Data (Firebase Analytics)</h3>
+                    <p>We use Firebase Analytics to collect anonymous usage statistics, including:</p>
+                    <ul>
+                        <li>Page views and screen visits within the app</li>
+                        <li>App session duration and frequency</li>
+                        <li>General device information (iOS version, device model)</li>
+                        <li>App crashes and performance metrics</li>
+                        <li>Feature usage patterns (which sections are used most)</li>
+                    </ul>
+                    <p><strong>Important:</strong> This data is completely anonymous and cannot be used to identify individual users. Firebase Analytics does not collect personal information such as names, email addresses, or learning content.</p>
+                    
+                    <h3>Information We Don't Collect</h3>
+                    <p>We do not collect, store, or transmit any of the following:</p>
                     <ul>
                         <li>Personal identification information (name, email, phone number)</li>
-                        <li>Learning progress or performance data</li>
-                        <li>Usage patterns or app interaction data</li>
-                        <li>Device information or unique identifiers</li>
-                        <li>Location data or IP addresses</li>
-                        <li>Any analytics or behavioral tracking data</li>
-                        <li>Crash reports or error logs</li>
+                        <li>Your learning progress or performance data</li>
+                        <li>Specific words you study or your answers</li>
+                        <li>Location data or precise IP addresses</li>
                         <li>Any data that could identify you personally</li>
+                        <li>Audio recordings or voice data</li>
+                        <li>Photos or camera access</li>
+                        <li>Contacts or calendar information</li>
                     </ul>
                 </div>
                 
@@ -212,15 +280,28 @@
                 </div>
                 
                 <div class="privacy-section">
-                    <h2>3. No Third-Party Services</h2>
-                    <p>Hemen İngilizce does not integrate with any third-party services that could collect your data:</p>
+                    <h2>3. Third-Party Services</h2>
+                    <p>Hemen İngilizce uses minimal third-party services to provide and improve the app:</p>
+                    
+                    <h3>Firebase Analytics (Google)</h3>
+                    <p>We use Firebase Analytics to understand how users interact with our app. Firebase Analytics:</p>
                     <ul>
-                        <li>No analytics services (Google Analytics, Firebase, etc.)</li>
+                        <li>Collects anonymous usage data and app performance metrics</li>
+                        <li>Does not collect personal information or learning content</li>
+                        <li>Uses device identifiers that cannot be linked to your identity</li>
+                        <li>Helps us improve app stability and user experience</li>
+                        <li>Complies with Apple's privacy guidelines and GDPR requirements</li>
+                    </ul>
+                    <p>You can learn more about Firebase Analytics privacy practices at <a href="https://firebase.google.com/support/privacy" style="color: var(--primary-color);">Firebase Privacy Policy</a>.</p>
+                    
+                    <h3>Services We Don't Use</h3>
+                    <ul>
                         <li>No advertising networks or ad serving platforms</li>
                         <li>No social media integrations</li>
-                        <li>No cloud storage services</li>
+                        <li>No cloud storage for personal data</li>
                         <li>No user tracking or profiling systems</li>
                         <li>No data brokers or marketing platforms</li>
+                        <li>No email marketing or communication services</li>
                     </ul>
                 </div>
                 
@@ -251,12 +332,14 @@
                     <h2>6. iOS Permissions</h2>
                     <p>Hemen İngilizce requests minimal permissions and only for essential functionality:</p>
                     <ul>
-                        <li><strong>No permissions required</strong> - The app works without requesting any special permissions</li>
-                        <li>No access to camera, microphone, or photos</li>
+                        <li><strong>Microphone Access</strong> - Required for pronunciation practice and speech recognition features. Audio is processed locally on your device and is never recorded, stored, or transmitted.</li>
+                        <li><strong>Network Access</strong> - Used only for Firebase Analytics data transmission. All learning content works completely offline.</li>
+                        <li>No access to camera or photos</li>
                         <li>No access to contacts or calendar</li>
                         <li>No access to location services</li>
                         <li>No access to notifications (unless you choose to enable them)</li>
                     </ul>
+                    <p><strong>Note:</strong> Analytics data is sent anonymously and cannot be linked to your identity or learning progress.</p>
                 </div>
                 
                 <div class="privacy-section">
@@ -325,12 +408,195 @@
                     <p><strong>Last Updated:</strong> January 2025</p>
                     <p>This privacy policy is effective as of the date listed above and applies to all versions of Hemen İngilizce.</p>
                 </div>
+                </div>
+                
+                <!-- Turkish Content -->
+                <div id="tr-content" class="language-content">
+                <div class="highlight-box">
+                    <h4>
+                        <i data-feather="shield"></i>
+                        Gizlilik Öncelikli Tasarım
+                    </h4>
+                    <p>Hemen İngilizce, gizliliği temel alan bir tasarımla geliştirilmiştir. Hiçbir kişisel veri toplamaz, saklamaz veya iletmeyiz. Bu politika, bilgilerinizle ne yaptığımızı ve yapmadığımızı tam olarak açıklar.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>1. Toplamadığımız Bilgiler</h2>
+                    <p>Tasarım gereği gizliliğe bağlıyız. Hemen İngilizce aşağıdakilerin hiçbirini toplamaz, saklamaz veya iletmez:</p>
+                    <ul>
+                        <li>Kişisel kimlik bilgileri (ad, e-posta, telefon numarası)</li>
+                        <li>Öğrenme ilerlemesi veya performans verileri</li>
+                        <li>Kullanım kalıpları veya uygulama etkileşim verileri</li>
+                        <li>Cihaz bilgileri veya benzersiz tanımlayıcılar</li>
+                        <li>Konum verileri veya IP adresleri</li>
+                        <li>Herhangi bir analitik veya davranışsal takip verisi</li>
+                        <li>Çökme raporları veya hata günlükleri</li>
+                        <li>Sizi kişisel olarak tanımlayabilecek herhangi bir veri</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>2. Yerel Veri Depolama</h2>
+                    <p>Öğrenme ilerlemenizle ilgili tüm veriler yalnızca cihazınızda saklanır:</p>
+                    <ul>
+                        <li>Öğrenme ilerlemeniz ve istatistikleriniz iPhone/iPad'inizde yerel olarak saklanır</li>
+                        <li>Kelime listeleri ve içerik bir kez indirilir ve yerel olarak saklanır</li>
+                        <li>Ayarlar ve tercihler yalnızca cihazınızda kaydedilir</li>
+                        <li>Hiçbir veri harici sunucularla senkronize edilmez</li>
+                        <li>Uygulamayı kaldırarak tüm uygulama verilerini silebilirsiniz</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>3. Üçüncü Taraf Hizmetler Yok</h2>
+                    <p>Hemen İngilizce, verilerinizi toplayabilecek herhangi bir üçüncü taraf hizmetiyle entegre değildir:</p>
+                    <ul>
+                        <li>Analitik hizmetler yok (Google Analytics, Firebase, vb.)</li>
+                        <li>Reklam ağları veya reklam sunma platformları yok</li>
+                        <li>Sosyal medya entegrasyonları yok</li>
+                        <li>Bulut depolama hizmetleri yok</li>
+                        <li>Kullanıcı takibi veya profilleme sistemleri yok</li>
+                        <li>Veri komisyoncuları veya pazarlama platformları yok</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>4. Reklam Yok</h2>
+                    <p>Hemen İngilizce tamamen reklamsızdır:</p>
+                    <ul>
+                        <li>Banner reklamlar, ara reklamlar veya video reklamlar yok</li>
+                        <li>Sponsorlu içerik veya tanıtım materyalleri yok</li>
+                        <li>Reklam amaçlı veri toplama yok</li>
+                        <li>Reklam kişiselleştirmesi için takip yok</li>
+                        <li>Reklam ortaklarıyla gelir paylaşımı yok</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>5. App Store Gereksinimleri</h2>
+                    <p>Biz veri toplamasa da, Apple'ın App Store'u standart uygulama dağıtım sürecinin bir parçası olarak belirli bilgileri toplayabilir:</p>
+                    <ul>
+                        <li>App Store indirme ve satın alma bilgilerini toplayabilir</li>
+                        <li>Çökme raporlamayı etkinleştirirseniz Apple çökme raporları toplayabilir</li>
+                        <li>App Store analitiği Apple tarafından işlenir, bizim tarafımızdan değil</li>
+                        <li>Apple tarafından toplanan hiçbir veriye erişimimiz yoktur</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>6. iOS İzinleri</h2>
+                    <p>Hemen İngilizce minimal izinler talep eder ve yalnızca temel işlevsellik için:</p>
+                    <ul>
+                        <li><strong>Mikrofon Erişimi</strong> - Telaffuz pratiği ve konuşma tanıma özellikleri için gereklidir. Ses cihazınızda yerel olarak işlenir ve asla kaydedilmez, saklanmaz veya iletilmez.</li>
+                        <li>Kamera veya fotoğraflara erişim yok</li>
+                        <li>Kişiler veya takvime erişim yok</li>
+                        <li>Konum hizmetlerine erişim yok</li>
+                        <li>Bildirimlere erişim yok (etkinleştirmeyi seçmediğiniz sürece)</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>7. Veri Güvenliği</h2>
+                    <p>Herhangi bir veri toplamadığımız için bizim tarafımızda güvence altına alınacak veri yoktur. Ancak şunları sağlarız:</p>
+                    <ul>
+                        <li>Tüm uygulama verileri iOS'un güvenli depolama mekanizmaları kullanılarak yerel olarak saklanır</li>
+                        <li>Uygulama ile harici sunucular arasında veri iletimi gerçekleşmez</li>
+                        <li>Uygulama güncellemeleri herhangi bir veri toplama değişikliği içermez</li>
+                        <li>Cihazınızın yerleşik güvenliği yerel verilerinizi korur</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>8. Çocukların Gizliliği</h2>
+                    <p>Hemen İngilizce her yaştan kullanıcı için güvenlidir:</p>
+                    <ul>
+                        <li>Veri toplama olmadığı için çocuklar için özel düşünceler gerektirmez</li>
+                        <li>Ebeveynler çocuklarının verilerinin gizli kalacağından emin olabilirler</li>
+                        <li>Yaş doğrulaması veya ebeveyn onayı gerekmez</li>
+                        <li>Uygulama okullarda eğitim amaçlı kullanım için uygundur</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>9. Bu Politikadaki Değişiklikler</h2>
+                    <p>Bu gizlilik politikasını değiştirmemiz gerekirse:</p>
+                    <ul>
+                        <li>Politikayı App Store listesinde güncelleyeceğiz</li>
+                        <li>Kullanıcıları uygulama güncellemeleri aracılığıyla bilgilendireceğiz</li>
+                        <li>Kişisel veri toplamama taahhüdümüzü sürdüreceğiz</li>
+                        <li>Herhangi bir değişikliğin net açıklamalarını sağlayacağız</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>10. Haklarınız</h2>
+                    <p>Herhangi bir veri toplamadığımız için tam kontrole sahipsiniz:</p>
+                    <ul>
+                        <li>Tüm verileriniz cihazınızda kalır</li>
+                        <li>Uygulamayı kaldırarak tüm verileri silebilirsiniz</li>
+                        <li>Veri toplama olmadığı için veri taşınabilirliği endişesi yoktur</li>
+                        <li>Hiçbir şey saklamadığımız için silme hakkına gerek yoktur</li>
+                        <li>Öğrenme verileriniz üzerinde tam gizlilik ve kontrol</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Bize Ulaşın</h3>
+                    <p>Bu gizlilik politikası veya gizlilik uygulamalarımız hakkında sorularınız varsa, lütfen bizimle iletişime geçin:</p>
+                    <div class="contact-item">
+                        <i data-feather="mail"></i>
+                        <span>E-posta: cloud@lokumops.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-feather="map-pin"></i>
+                        <span>Şirket: Lokum Ops (Türkiye & BAE)</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-feather="globe"></i>
+                        <span>Web sitesi: <a href="../index.html" style="color: var(--primary-color);">lokumops.com</a></span>
+                    </div>
+                </div>
+                
+                <div class="last-updated">
+                    <p><strong>Son Güncelleme:</strong> Ocak 2025</p>
+                    <p>Bu gizlilik politikası yukarıda listelenen tarih itibariyle geçerlidir ve Hemen İngilizce'nin tüm sürümleri için geçerlidir.</p>
+                </div>
+                </div>
             </div>
         </div>
     </div>
     
     <script>
         feather.replace();
+        
+        function switchLanguage(lang) {
+            // Hide all language content
+            const allContent = document.querySelectorAll('.language-content');
+            allContent.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const allTabs = document.querySelectorAll('.language-tab');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected language content
+            const selectedContent = document.getElementById(lang + '-content');
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            
+            // Add active class to selected tab
+            const selectedTab = document.querySelector(`[onclick="switchLanguage('${lang}')"]`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Re-initialize feather icons for the newly shown content
+            feather.replace();
+        }
     </script>
 </body>
 </html>

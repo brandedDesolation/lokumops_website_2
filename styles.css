@@ -956,3 +956,41 @@ body, main {
 .expertise-cta p {
     margin-bottom: 20px;
 }
+
+/* Privacy Policy Page Overrides */
+.privacy-page .section-header {
+    text-align: left;
+}
+
+.privacy-page .section-title {
+    text-align: left;
+}
+
+.privacy-page .section-subtitle {
+    text-align: left;
+    margin: 0;
+}
+
+.privacy-page .service-card h3,
+.privacy-page .expertise-card h3,
+.privacy-page .about-card h3 {
+    text-align: left;
+}
+
+.privacy-page .service-card p,
+.privacy-page .expertise-card p,
+.privacy-page .about-card p {
+    text-align: left;
+}
+
+.privacy-page .about-card {
+    text-align: left;
+}
+
+.privacy-page .contact-info h3 {
+    text-align: left;
+}
+
+.privacy-page .last-updated {
+    text-align: left;
+}
