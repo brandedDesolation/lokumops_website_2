@@ -1,70 +1,47 @@
-// Rotating text in hero section
-const rotatingText = document.querySelector('.rotating-text');
-const heroSubtitle = document.querySelector('.hero-subtitle');
+// Rotating sentences in hero section
+const heroSentence = document.getElementById('hero-sentence');
 
-const words = ['cloud solutions', 'AI systems', 'secure platforms', 'automation'];
-const subtitles = [
-    'Seamless AWS migrations and cloud-native modernization',
-    'Custom AI models and GenAI integration for your business',
-    'Enterprise-grade security with SOC2 and HIPAA compliance',
-    'CI/CD pipelines and Infrastructure as Code excellence'
+const sentences = [
+    {
+        html: 'We transform your business with<br><span class="highlight">Cloud and AI Excellence</span>'
+    },
+    {
+        html: 'We deliver cutting-edge <span class="highlight">cloud solutions</span> and <span class="highlight">AI innovations</span> to transform your business'
+    }
 ];
 
 let currentIndex = 0;
 
-// Create word element
-function createWordElement(text) {
-    const span = document.createElement('span');
-    span.className = 'word';
-    span.textContent = text;
-    return span;
-}
+// Initialize first sentence
+heroSentence.innerHTML = sentences[0].html;
+heroSentence.classList.add('visible');
 
-// Initialize first word
-let currentWord = createWordElement(words[0]);
-currentWord.classList.add('active');
-rotatingText.appendChild(currentWord);
-heroSubtitle.textContent = subtitles[0];
-heroSubtitle.classList.add('visible');
-
-function rotateText() {
-    const oldWord = currentWord;
-    oldWord.classList.remove('active');
-    oldWord.classList.add('exit');
-    
-    // Fade out subtitle smoothly
-    heroSubtitle.classList.remove('visible');
+function rotateSentence() {
+    // Fade out
+    heroSentence.classList.remove('visible');
+    heroSentence.classList.add('exit');
     
     setTimeout(() => {
-        // Remove old word after animation completes
-        oldWord.remove();
-        
         // Update index
-        currentIndex = (currentIndex + 1) % words.length;
+        currentIndex = (currentIndex + 1) % sentences.length;
         
-        // Create and add new word
-        currentWord = createWordElement(words[currentIndex]);
-        rotatingText.appendChild(currentWord);
+        // Update content
+        heroSentence.innerHTML = sentences[currentIndex].html;
+        heroSentence.classList.remove('exit');
         
-        // Small delay before triggering entrance animation
-        requestAnimationFrame(() => {
+        // Fade in with smooth delay
+        setTimeout(() => {
             requestAnimationFrame(() => {
-                currentWord.classList.add('active');
-                
-                // Update subtitle text and animate in with delay
-                setTimeout(() => {
-                    heroSubtitle.textContent = subtitles[currentIndex];
-                    requestAnimationFrame(() => {
-                        heroSubtitle.classList.add('visible');
-                    });
-                }, 200);
+                requestAnimationFrame(() => {
+                    heroSentence.classList.add('visible');
+                });
             });
-        });
-    }, 600);
+        }, 50);
+    }, 800);
 }
 
-// Rotate every 3.5 seconds for smoother feel
-setInterval(rotateText, 3500);
+// Rotate every 5 seconds for smoother experience
+setInterval(rotateSentence, 5000);
 
 // Solution cards expand/collapse
 const solutionCards = document.querySelectorAll('.solution-card');
