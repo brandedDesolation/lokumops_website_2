@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lokum Ops | AWS Cloud & AI Solutions | Digital Transformation</title>
     <meta name="description" content="Cloud & AI Solutions, AWS Partner. We build cloud solutions, AI systems, secure platforms, and automation.">
+    <link rel="icon" type="image/png" href="assets/Adsız tasarım-5.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,6 +15,11 @@
             <a href="#" class="logo">
                 <img src="assets/Adsız tasarım-5.png" alt="Lokum Ops" class="logo-img">
             </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#solutions">Solutions</a></li>
@@ -23,6 +29,7 @@
             </ul>
         </div>
     </nav>
+    <div class="menu-overlay"></div>
 
     <!-- Main Content Wrapper -->
     <div class="main-content">
@@ -309,7 +316,7 @@
                     <h2>with us</h2>
                 </div>
                 <div class="contact-form">
-                    <form action="https://formspree.io/f/your-form-id" method="POST">
+                    <form action="#" method="POST" class="contact-form-disabled">
                         <div class="form-group">
                             <input type="text" name="name" placeholder="FULL NAME" required>
                         </div>
