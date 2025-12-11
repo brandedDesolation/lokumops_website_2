@@ -20,7 +20,7 @@
         
         .privacy-header h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 400;
             color: var(--primary);
             margin-bottom: 1rem;
@@ -33,7 +33,7 @@
         
         .privacy-content h2 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
             font-weight: 400;
             color: var(--primary);
             margin-top: 2.5rem;
@@ -42,7 +42,7 @@
         
         .privacy-content h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
             font-weight: 400;
             color: var(--accent);
             margin-top: 1.5rem;
@@ -53,10 +53,11 @@
             color: var(--text);
             line-height: 1.8;
             margin-bottom: 1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
         
         .privacy-content ul {
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             margin-bottom: 1.5rem;
         }
         
@@ -64,11 +65,13 @@
             color: var(--text);
             line-height: 1.8;
             margin-bottom: 0.5rem;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
         
         .privacy-content a {
             color: var(--accent);
             text-decoration: none;
+            word-break: break-word;
         }
         
         .privacy-content a:hover {
@@ -84,10 +87,59 @@
             text-decoration: none;
             border: none;
             transition: all 0.3s;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
         
         .back-link:hover {
             color: var(--accent-dark);
+        }
+        
+        /* Mobile responsive for privacy page */
+        @media (max-width: 768px) {
+            .privacy-container {
+                padding: 6rem 1.5rem 3rem;
+            }
+            
+            .privacy-header {
+                margin-bottom: 2rem;
+            }
+            
+            .privacy-content ul {
+                margin-left: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .privacy-container {
+                padding: 5rem 1rem 2rem;
+            }
+            
+            .privacy-header h1 {
+                font-size: clamp(1.6rem, 7vw, 2.5rem);
+            }
+            
+            .privacy-header p {
+                font-size: 0.9rem;
+            }
+            
+            .privacy-content h2 {
+                font-size: clamp(1.1rem, 5vw, 1.3rem);
+                margin-top: 2rem;
+            }
+            
+            .privacy-content h3 {
+                font-size: clamp(0.95rem, 4vw, 1.1rem);
+            }
+            
+            .privacy-content p,
+            .privacy-content li {
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
+            
+            .privacy-content ul {
+                margin-left: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -96,8 +148,13 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/Pokecut_1764589123076.png" alt="Lokum Ops" class="logo-img">
+                <img src="assets/Adsız tasarım-5.png" alt="Lokum Ops" class="logo-img">
             </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu">
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#solutions">Solutions</a></li>
@@ -107,6 +164,7 @@
             </ul>
         </div>
     </nav>
+    <div class="menu-overlay"></div>
 
     <div class="privacy-container">
         <div class="privacy-header">
@@ -353,6 +411,36 @@
             
             lastScrollPos = currentScrollPos;
         });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        if (mobileMenuToggle && navMenu && menuOverlay) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            menuOverlay.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
     </script>
 </body>
 </html>

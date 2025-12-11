@@ -166,3 +166,87 @@ const contactObserver = new IntersectionObserver((entries) => {
 if (contactTitle) {
     contactObserver.observe(contactTitle);
 }
+
+// Social section animation on scroll
+const socialSection = document.querySelector('.social');
+const socialTitle = document.querySelector('.social h2');
+const socialLinks = document.querySelector('.social-links');
+
+const socialObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Animate title first
+            if (socialTitle) {
+                socialTitle.classList.add('visible');
+            }
+            
+            // Then animate links with delay
+            setTimeout(() => {
+                if (socialLinks) {
+                    socialLinks.classList.add('visible');
+                }
+            }, 200);
+            
+            socialObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.4 });
+
+if (socialSection) {
+    socialObserver.observe(socialSection);
+}
+
+// Mobile menu functionality
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const menuOverlay = document.querySelector('.menu-overlay');
+const navLinks = document.querySelectorAll('.nav-menu a');
+
+function closeMenu() {
+    mobileMenuToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+    if (menuOverlay) menuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function openMenu() {
+    mobileMenuToggle.classList.add('active');
+    navMenu.classList.add('active');
+    if (menuOverlay) menuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+if (mobileMenuToggle && navMenu) {
+    // Toggle menu when clicking hamburger button
+    mobileMenuToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (navMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Close menu when clicking on a navigation link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeMenu();
+        });
+    });
+    
+    // Close menu when clicking on the overlay
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', () => {
+            closeMenu();
+        });
+    }
+    
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+}
