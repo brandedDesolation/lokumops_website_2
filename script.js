@@ -250,3 +250,6 @@ if (mobileMenuToggle && navMenu) {
         }
     });
 }
+
+// Contact email button - no additional JavaScript needed
+// The mailto link will open the user's default email client
