@@ -1,4 +1,4 @@
-# LokumOps Website
+# Lokum Ops Website
 
 Modern, responsive website for LokumOps - Cloud & AI Solutions, AWS Partner.
 
