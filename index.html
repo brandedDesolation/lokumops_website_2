@@ -1,345 +1,396 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lokum Ops - AWS Cloud & AI Solutions | Digital Transformation</title>
-    <meta name="description" content="Specializing in AWS cloud migration, GenAI solutions, and enterprise digital transformation. Trusted by startups and enterprises worldwide.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Lokum Ops | AWS Cloud & AI Solutions | Digital Transformation</title>
+    <meta name="description" content="Cloud & AI Solutions, AWS Partner. We build cloud solutions, AI systems, secure platforms, and automation.">
+    <link rel="icon" type="image/png" href="assets/Adsız tasarım-5.png">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
 </head>
 <body>
-    <div id="particles-js"></div>
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i data-feather="cloud"></i>
-                </div>
-                <div class="logo-text">
-                    <span class="logo-name">Lokum Ops</span>
-                    <span class="logo-badge">Cloud & AI</span>
-                </div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="/apps/hemen-ingilizce.html" class="nav-app-link">Our Apps</a></li>
-            </ul>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <i data-feather="menu"></i>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="assets/Adsız tasarım-5.png" alt="Lokum Ops" class="logo-img">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
-        </nav>
-    </header>
+            <ul class="nav-menu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#apps">Our Apps</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="menu-overlay"></div>
 
-    <main>
-        <section id="hero" class="hero container">
-            <div class="hero-badge" data-aos="fade-up">
-                <i data-feather="zap"></i>
-                <span>Cloud & AI Solutions</span>
-            </div>
-            <h1 data-aos="fade-up" data-aos-delay="200">Transform Your Business</h1>
-            <h2 data-aos="fade-up" data-aos-delay="400">with Cloud & AI Excellence</h2>
-            <p data-aos="fade-up" data-aos-delay="600">Empowering startups and enterprises with cutting-edge cloud migrations, GenAI solutions, and digital transformation strategies</p>
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="800">
-                <div class="stat">
-                    <span class="stat-number">✓</span>
-                    <span class="stat-label">Proven Results</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">✓</span>
-                    <span class="stat-label">Expert Team</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">✓</span>
-                    <span class="stat-label">Innovation Focus</span>
-                </div>
-            </div>
-            <div class="hero-actions" data-aos="fade-up" data-aos-delay="1000">
-                <a href="#contact" class="cta-button primary">
-                    <span>Start Your Journey</span>
-                    <i data-feather="arrow-right"></i>
-                </a>
-                <a href="#expertise" class="cta-button secondary">
-                    <span>View Our Expertise</span>
-                    <i data-feather="play"></i>
-                </a>
-            </div>
-        </section>
+    <!-- Main Content Wrapper -->
+    <div class="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-sentence"></h1>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+        </div>
+    </section>
 
-        <section id="services" class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">AWS Cloud Solutions</h2>
-                <p class="section-subtitle">Comprehensive cloud services designed to accelerate your digital transformation</p>
-            </div>
-            <div class="service-grid">
-                <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon">
-                        <i data-feather="cloud"></i>
-                    </div>
-                    <h3>Cloud Migration & Modernization</h3>
-                    <p>Seamlessly migrate your workloads to AWS with zero downtime. We handle everything from assessment to go-live.</p>
-                    <ul class="service-features">
-                        <li>Lift & Shift Migration</li>
-                        <li>Cloud-Native Modernization</li>
-                        <li>Database Migration</li>
-                        <li>Application Refactoring</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">
-                        <i data-feather="cpu"></i>
-                    </div>
-                    <h3>AI & Machine Learning</h3>
-                    <p>Leverage AWS AI/ML services to build intelligent applications and drive data-driven decisions.</p>
-                    <ul class="service-features">
-                        <li>Generative AI Solutions</li>
-                        <li>ML Model Development</li>
-                        <li>SageMaker Implementation</li>
-                        <li>AI-Powered Analytics</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">
-                        <i data-feather="shield"></i>
-                    </div>
-                    <h3>Security & Compliance</h3>
-                    <p>Implement enterprise-grade security with AWS security services and compliance frameworks.</p>
-                    <ul class="service-features">
-                        <li>Security Architecture</li>
-                        <li>Compliance Audits</li>
-                        <li>Identity & Access Management</li>
-                        <li>Threat Detection</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i data-feather="zap"></i>
-                    </div>
-                    <h3>DevOps & Automation</h3>
-                    <p>Accelerate development with CI/CD pipelines, infrastructure as code, and automated deployments.</p>
-                    <ul class="service-features">
-                        <li>CI/CD Pipeline Setup</li>
-                        <li>Infrastructure as Code</li>
-                        <li>Container Orchestration</li>
-                        <li>Monitoring & Alerting</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-icon">
-                        <i data-feather="bar-chart-2"></i>
-                    </div>
-                    <h3>Data Analytics & BI</h3>
-                    <p>Transform your data into actionable insights with modern analytics platforms and business intelligence solutions.</p>
-                    <ul class="service-features">
-                        <li>Data Lake Architecture</li>
-                        <li>Real-time Analytics</li>
-                        <li>Business Intelligence</li>
-                        <li>Data Visualization</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-icon">
-                        <i data-feather="users"></i>
-                    </div>
-                    <h3>Consulting & Strategy</h3>
-                    <p>Strategic guidance and technical consulting to help you make informed decisions about your cloud journey.</p>
-                    <ul class="service-features">
-                        <li>Cloud Strategy Planning</li>
-                        <li>Cost Optimization</li>
-                        <li>Architecture Reviews</li>
-                        <li>Technology Roadmaps</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="expertise" class="container expertise-section">
-            <h2 class="section-title" data-aos="fade-up">Our Expertise</h2>
+    <!-- Our Expertise -->
+    <section id="services" class="expertise">
+        <div class="container">
+            <h2 class="section-title">Our Expertise</h2>
             <div class="expertise-grid">
-                <div class="expertise-card" data-aos="fade-up">
-                    <i data-feather="database"></i>
+                <div class="expertise-card" data-index="0">
                     <h3>AWS Services</h3>
                     <p>Expert implementation of EC2, S3, Lambda, RDS, and more. We optimize your infrastructure for scalability and performance.</p>
                 </div>
-                <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
-                    <i data-feather="cpu"></i>
+                <div class="expertise-card" data-index="1">
                     <h3>Machine Learning & AI</h3>
                     <p>Custom AI models using SageMaker, TensorFlow, and PyTorch. We bring cutting-edge ML solutions to your business challenges.</p>
                 </div>
-                <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
-                    <i data-feather="git-branch"></i>
+                <div class="expertise-card" data-index="2">
                     <h3>DevOps & CI/CD</h3>
                     <p>Streamlined CI/CD pipelines with AWS CodePipeline, Jenkins, and GitLab. We accelerate your development lifecycle.</p>
                 </div>
-                <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
-                    <i data-feather="layers"></i>
+                <div class="expertise-card" data-index="3">
                     <h3>Big Data & Analytics</h3>
                     <p>Scalable analytics with EMR, Redshift, and Athena. We help you derive actionable insights from your data.</p>
                 </div>
-                <div class="expertise-card" data-aos="fade-up" data-aos-delay="400">
-                    <i data-feather="zap"></i>
+                <div class="expertise-card" data-index="4">
                     <h3>Serverless Architecture</h3>
                     <p>Efficient architectures using Lambda, API Gateway, and DynamoDB. We build cost-effective, scalable solutions.</p>
                 </div>
-                <div class="expertise-card" data-aos="fade-up" data-aos-delay="500">
-                    <i data-feather="box"></i>
+                <div class="expertise-card" data-index="5">
                     <h3>Microservices & Containers</h3>
                     <p>Scalable applications with ECS, EKS, and Docker. We design resilient, modular systems for your business.</p>
                 </div>
             </div>
-            <div class="expertise-cta" data-aos="fade-up" data-aos-delay="600">
-                <p>Discover how our expertise can transform your business</p>
-                <a href="#contact" class="cta-button">
-                    <span>Learn More</span>
-                    <i data-feather="arrow-right"></i>
-                </a>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Why Choose Lokum Ops?</h2>
-                <p class="section-subtitle">We deliver exceptional results through expertise, innovation, and dedication</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-card" data-aos="fade-up">
-                    <div class="about-icon">
-                        <i data-feather="zap"></i>
+    <!-- Our Solutions -->
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <h2 class="section-title">Our Solutions</h2>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>Cloud Migration & Modernization</h3>
+                        <button class="expand-btn">+</button>
                     </div>
+                    <div class="solution-content">
+                        <p>Seamlessly migrate your workloads to AWS with zero downtime. We handle everything from assessment to go-live.</p>
+                        <ul>
+                            <li>Lift & Shift Migration</li>
+                            <li>Cloud-Native Modernization</li>
+                            <li>Database Migration</li>
+                            <li>Application Refactoring</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>AI & Machine Learning</h3>
+                        <button class="expand-btn">+</button>
+                    </div>
+                    <div class="solution-content">
+                        <p>Leverage AWS AI/ML services to build intelligent applications and drive data-driven decisions.</p>
+                        <ul>
+                            <li>Generative AI Solutions</li>
+                            <li>ML Model Development</li>
+                            <li>SageMaker Implementation</li>
+                            <li>AI-Powered Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>Security & Compliance</h3>
+                        <button class="expand-btn">+</button>
+                    </div>
+                    <div class="solution-content">
+                        <p>Implement enterprise-grade security with AWS security services and compliance frameworks.</p>
+                        <ul>
+                            <li>Security Architecture</li>
+                            <li>Compliance Audits</li>
+                            <li>Identity & Access Management</li>
+                            <li>Threat Detection</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>DevOps & Automation</h3>
+                        <button class="expand-btn">+</button>
+                    </div>
+                    <div class="solution-content">
+                        <p>Accelerate development with CI/CD pipelines, infrastructure as code, and automated deployments.</p>
+                        <ul>
+                            <li>CI/CD Pipeline Setup</li>
+                            <li>Infrastructure as Code</li>
+                            <li>Container Orchestration</li>
+                            <li>Monitoring & Alerting</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>Data Analytics & BI</h3>
+                        <button class="expand-btn">+</button>
+                    </div>
+                    <div class="solution-content">
+                        <p>Transform your data into actionable insights with modern analytics platforms and business intelligence solutions.</p>
+                        <ul>
+                            <li>Data Lake Architecture</li>
+                            <li>Real-time Analytics</li>
+                            <li>Business Intelligence</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>Consulting & Strategy</h3>
+                        <button class="expand-btn">+</button>
+                    </div>
+                    <div class="solution-content">
+                        <p>Strategic guidance and technical consulting to help you make informed decisions about your cloud journey.</p>
+                        <ul>
+                            <li>Cloud Strategy Planning</li>
+                            <li>Cost Optimization</li>
+                            <li>Architecture Reviews</li>
+                            <li>Technology Roadmaps</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="why-us" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose Lokum Ops?</h2>
+            <p class="section-subtitle">We deliver exceptional results through expertise, innovation, and dedication</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
                     <h3>Accelerated Growth</h3>
                     <p>Transform your business with tailored cloud solutions that scale with your needs and drive measurable results.</p>
                 </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="about-icon">
-                        <i data-feather="clock"></i>
-                    </div>
+                <div class="benefit-card">
                     <h3>Zero Downtime Migrations</h3>
                     <p>Seamless cloud migrations with minimal disruption to your business operations and customer experience.</p>
                 </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="about-icon">
-                        <i data-feather="cpu"></i>
-                    </div>
+                <div class="benefit-card">
                     <h3>AI Innovation</h3>
                     <p>Cutting-edge GenAI implementations that unlock new possibilities and competitive advantages for your business.</p>
                 </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="about-icon">
-                        <i data-feather="shield"></i>
-                    </div>
+                <div class="benefit-card">
                     <h3>Enterprise Security</h3>
                     <p>Robust security measures and compliance frameworks to protect your data and maintain regulatory standards.</p>
                 </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="about-icon">
-                        <i data-feather="users"></i>
-                    </div>
+                <div class="benefit-card">
                     <h3>Expert Team</h3>
                     <p>Deep cloud & AI knowledge with years of experience delivering complex projects for diverse industries.</p>
                 </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="about-icon">
-                        <i data-feather="headphones"></i>
-                    </div>
+                <div class="benefit-card">
                     <h3>24/7 Support</h3>
                     <p>Round-the-clock support and monitoring to ensure your cloud infrastructure runs smoothly and efficiently.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="container">
-            <h2 class="section-title" data-aos="fade-up">Get in Touch</h2>
-            <p data-aos="fade-up" data-aos-delay="200">Ready to elevate your business with AWS Cloud and AI? Contact us now!</p>
-            <div class="contact-button-wrapper" data-aos="fade-up" data-aos-delay="400" style="margin-bottom: 30px;">
-                <a href="#" class="cta-button email-us-button" onclick="contactUs()">
-                    <i data-feather="mail"></i>
-                    <span>Email Us</span>
+    <!-- Our Apps -->
+    <section id="apps" class="apps">
+        <div class="container">
+            <h2 class="section-title">Our Apps</h2>
+            <p>Products we've built with love</p>
+            <div class="apps-grid">
+                <a href="https://apps.apple.com/us/app/hemen-ingilizce/id6752536927" target="_blank" class="app-card">
+                    <div class="app-image">
+                        <img src="assets/edited.webp" alt="Hemen İngilizce">
+                    </div>
+                    <div class="app-info">
+                        <h3>Hemen İngilizce</h3>
+                        <p>AI-powered language learning app</p>
+                    </div>
+                </a>
+                <a href="https://apps.apple.com/us/app/app-to-link/id6753908110" target="_blank" class="app-card">
+                    <div class="app-image">
+                        <img src="assets/Gemini_Generated_Image_vw9t7dvw9t7dvw9t (1).png" alt="App to Link">
+                    </div>
+                    <div class="app-info">
+                        <h3>App to Link</h3>
+                        <p>Turn your posts into links</p>
+                    </div>
+                </a>
+                <a href="#" class="app-card">
+                    <div class="app-image">
+                        <img src="assets/focuslooop.webp" alt="FocusLoop">
+                    </div>
+                    <div class="app-info">
+                        <h3>FocusLoop</h3>
+                        <p>Stay focused, achieve more</p>
+                    </div>
                 </a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
+    <!-- Clients -->
+    <section class="clients">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i data-feather="cloud"></i>
-                        <span>Lokum Ops</span>
-                    </div>
-                    <p class="footer-description">Delivering cutting-edge cloud solutions and AI innovations to transform your business.</p>
-                    <div class="aws-badges">
-                        <div class="aws-badge">
-                            <i data-feather="cloud"></i>
-                            <span>Cloud & AI Experts</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Cloud Migration</a></li>
-                        <li><a href="#services">AI & ML Solutions</a></li>
-                        <li><a href="#services">Security & Compliance</a></li>
-                        <li><a href="#services">DevOps & Automation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Our Apps</h4>
-                    <ul>
-                        <li><a href="/apps/hemen-ingilizce.html">Hemen İngilizce</a></li>
-                        <li><a href="/apps/hemen-ingilizce-privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i data-feather="mail"></i>
-                            <span>cloud@lokumops.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i data-feather="map-pin"></i>
-                            <span>Turkey & UAE</span>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/lokum-ops" aria-label="LinkedIn">
-                            <i data-feather="linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Lokum Ops. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="/apps/hemen-ingilizce-privacy.html">Privacy Policy</a>
-                    <a href="#contact">Contact Us</a>
+            <h2 class="section-title">People We Work With</h2>
+            <div class="clients-grid">
+                <a href="https://aortacademy.com/" target="_blank" class="client-logo">
+                    <img src="assets/Screenshot 2025-12-04 at 13.32.44.png" alt="Aorta">
+                </a>
+
+                <a href="https://aws.amazon.com/" target="_blank" class="client-logo aws-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 304 182" width="150" height="90">
+                        <path fill="#252F3E" d="M86.4 66.4c0 3.7.4 6.7 1.1 8.9.8 2.2 1.8 4.6 3.2 7.2.5.8.7 1.6.7 2.3 0 1-.6 2-1.9 3l-6.3 4.2c-.9.6-1.8.9-2.6.9-1 0-2-.5-3-1.4-1.4-1.5-2.6-3.1-3.6-4.7-1-1.7-2-3.6-3.1-5.9-7.8 9.2-17.6 13.8-29.4 13.8-8.4 0-15.1-2.4-20-7.2-4.9-4.8-7.4-11.2-7.4-19.2 0-8.5 3-15.4 9.1-20.6 6.1-5.2 14.2-7.8 24.5-7.8 3.4 0 6.9.3 10.6.8 3.7.5 7.5 1.3 11.5 2.2v-7.3c0-7.6-1.6-12.9-4.7-16-3.2-3.1-8.6-4.6-16.3-4.6-3.5 0-7.1.4-10.8 1.3-3.7.9-7.3 2-10.8 3.4-1.6.7-2.8 1.1-3.5 1.3-.7.2-1.2.3-1.6.3-1.4 0-2.1-1-2.1-3.1v-4.9c0-1.6.2-2.8.7-3.5.5-.7 1.4-1.4 2.8-2.1 3.5-1.8 7.7-3.3 12.6-4.5 4.9-1.3 10.1-1.9 15.6-1.9 11.9 0 20.6 2.7 26.2 8.1 5.5 5.4 8.3 13.6 8.3 24.6v32.4zM45.8 81.6c3.3 0 6.7-.6 10.3-1.8 3.6-1.2 6.8-3.4 9.5-6.4 1.6-1.9 2.8-4 3.4-6.4.6-2.4 1-5.3 1-8.7v-4.2c-2.9-.7-6-1.3-9.2-1.7-3.2-.4-6.3-.6-9.4-.6-6.7 0-11.6 1.3-14.9 4-3.3 2.7-4.9 6.5-4.9 11.5 0 4.7 1.2 8.2 3.7 10.6 2.4 2.5 5.9 3.7 10.5 3.7zm80.3 10.8c-1.8 0-3-.3-3.8-1-.8-.6-1.5-2-2.1-3.9l-23.5-77.3c-.6-2-.9-3.3-.9-4 0-1.6.8-2.5 2.4-2.5h9.8c1.9 0 3.2.3 3.9 1 .8.6 1.4 2 2 3.9l16.8 66.2 15.6-66.2c.5-2 1.1-3.3 1.9-3.9.8-.6 2.2-1 4-1h8c1.9 0 3.2.3 4 1 .8.6 1.5 2 1.9 3.9l15.8 67 17.3-67c.6-2 1.3-3.3 2-3.9.8-.6 2.1-1 3.9-1h9.3c1.6 0 2.5.8 2.5 2.5 0 .5-.1 1-.2 1.6-.1.6-.3 1.4-.7 2.5l-24.1 77.3c-.6 2-1.3 3.3-2.1 3.9-.8.6-2.1 1-3.8 1h-8.6c-1.9 0-3.2-.3-4-1-.8-.7-1.5-2-1.9-4l-15.5-64.5-15.4 64.4c-.5 2-1.1 3.3-1.9 4-.8.7-2.2 1-4 1h-8.6zm128.5 2.7c-5.2 0-10.4-.6-15.4-1.8-5-1.2-8.9-2.5-11.5-4-1.6-.9-2.7-1.9-3.1-2.8-.4-.9-.6-1.9-.6-2.8v-5.1c0-2.1.8-3.1 2.3-3.1.6 0 1.2.1 1.8.3.6.2 1.5.6 2.5 1 3.4 1.5 7.1 2.7 11 3.5 4 .8 7.9 1.2 11.9 1.2 6.3 0 11.2-1.1 14.6-3.3 3.4-2.2 5.2-5.4 5.2-9.5 0-2.8-.9-5.1-2.7-7-1.8-1.9-5.2-3.6-10.1-5.2l-14.5-4.5c-7.3-2.3-12.7-5.7-16-10.2-3.3-4.4-5-9.3-5-14.5 0-4.2.9-7.9 2.7-11.1 1.8-3.2 4.2-6 7.2-8.2 3-2.3 6.4-4 10.4-5.2 4-1.2 8.2-1.7 12.6-1.7 2.2 0 4.5.1 6.7.4 2.3.3 4.4.7 6.5 1.1 2 .5 3.9 1 5.7 1.6 1.8.6 3.2 1.2 4.2 1.8 1.4.8 2.4 1.6 3 2.5.6.8.9 1.9.9 3.3v4.7c0 2.1-.8 3.2-2.3 3.2-.8 0-2.1-.4-3.8-1.2-5.7-2.6-12.1-3.9-19.2-3.9-5.7 0-10.2.9-13.3 2.8-3.1 1.9-4.7 4.8-4.7 8.9 0 2.8 1 5.2 3 7.1 2 1.9 5.7 3.8 11 5.5l14.2 4.5c7.2 2.3 12.4 5.5 15.5 9.6 3.1 4.1 4.6 8.8 4.6 14 0 4.3-.9 8.2-2.6 11.6-1.8 3.4-4.2 6.4-7.3 8.8-3.1 2.5-6.8 4.3-11.1 5.6-4.5 1.4-9.2 2.1-14.3 2.1z"/>
+                        <path fill="#F90" d="M273.5 143.7c-32.9 24.3-80.7 37.2-121.8 37.2-57.6 0-109.5-21.3-148.7-56.7-3.1-2.8-.3-6.6 3.4-4.4 42.4 24.6 94.7 39.5 148.8 39.5 36.5 0 76.6-7.6 113.5-23.2 5.5-2.5 10.2 3.6 4.8 7.6z"/>
+                        <path fill="#F90" d="M287.2 128.1c-4.2-5.4-27.8-2.6-38.5-1.3-3.2.4-3.7-2.4-.8-4.5 18.8-13.2 49.7-9.4 53.3-5 3.6 4.5-1 35.4-18.6 50.2-2.7 2.3-5.3 1.1-4.1-1.9 4-9.9 12.9-32.2 8.7-37.5z"/>
+                    </svg>
+                </a>
+                <a href="https://www.korukamp.com/" target="_blank" class="client-logo">
+                    <img src="assets/KoruLogo.png" alt="Korukamp">
+                </a>
+                <a href="https://obilet.com" target="_blank" class="client-logo">
+                    <img src="assets/Screenshot 2025-12-04 at 13.33.19.png" alt="Obilet">
+                </a>
+                <a href="https://quanite.com/" target="_blank" class="client-logo">
+                    <img src="assets/Screenshot 2025-12-04 at 13.33.32.png" alt="Quanite LTD">
+                </a>
+                <a href="https://www.demsay.com" target="_blank" class="client-logo demsay-logo">
+                    <img src="assets/demsay-elektronik-logo-w.png" alt="Demsay Elektronik">
+                </a>
+                <a href="https://radicom.ai/" target="_blank" class="client-logo">
+                    <img src="assets/Screenshot_2025-12-08_at_10.37.24-removebg-preview.png" alt="Radicom">
+                </a>
+                <div class="client-logo">
+                    <img src="assets/logo-500w (1).png" alt="Partner">
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Social Media -->
+    <section class="social">
+        <div class="container">
+            <h2>Follow us</h2>
+            <div class="social-links">
+                <a href="https://linkedin.com/company/lokumops" target="_blank" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://twitter.com/lokumops" target="_blank" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <span>X (Twitter)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-title">
+                    <h2>Get in</h2>
+                    <h2>touch</h2>
+                    <h2>with us</h2>
+                </div>
+                <div class="contact-cta">
+                    <a href="mailto:cloud@lokumops.com?subject=Hello Lokum Ops&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AName: %0D%0ACompany: %0D%0APhone: %0D%0A%0D%0AMessage: " class="contact-email-link">
+                        cloud@lokumops.com
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-location">
+                        <span class="location-label">Locations</span>
+                        <span>Turkey & UAE</span>
+                    </div>
+                    <div class="contact-location">
+                        <span class="location-label">Phone</span>
+                        <span>Available via email</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#solutions">Cloud Migration</a></li>
+                            <li><a href="#solutions">AI & ML Solutions</a></li>
+                            <li><a href="#solutions">Data Analytics & BI</a></li>
+                            <li><a href="#solutions">DevOps & Automation</a></li>
+                            <li><a href="#solutions">Consulting & Strategy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Our Apps</h4>
+                        <ul>
+                            <li><a href="https://apps.apple.com/us/app/hemen-ingilizce/id6752536927" target="_blank">Hemen İngilizce</a></li>
+                            <li><a href="https://apps.apple.com/us/app/app-to-link/id6753908110" target="_blank">App to Link</a></li>
+                            <li>FocusLoop</li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:cloud@lokumops.com">cloud@lokumops.com</a></li>
+                            <li>Turkey & UAE</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 Lokum Ops. All rights reserved</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Brand Spacer -->
+    <div class="brand-spacer"></div>
+
+    <!-- Bottom Brand Section - Fixed underneath -->
+    <div class="brand-reveal">
+        <div class="brand-content">
+            <h2>Lokum Ops</h2>
+            <p>AWS Partner</p>
+        </div>
+        <div class="credit">Made with love by İpek</div>
+    </div>
+
     <script src="script.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-
-        function contactUs() {
-            document.location.href=atob('bWFpbHRvOmNsb3VkQGxva3Vtb3BzLmNvbQ==');
-        } 
-    </script>
 </body>
 </html>
