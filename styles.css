@@ -71,10 +71,11 @@ h3, h4, h5, h6 {
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 70px;
 }
 
 /* Menu overlay - hidden by default on desktop */
@@ -91,16 +92,21 @@ h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     position: relative;
+    overflow: visible;
 }
 
 .logo-img {
-    height: 55px;
+    height: 90px;
     width: auto;
     transition: transform 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%);
+    left: 0;
 }
 
 .logo:hover .logo-img {
-    transform: scale(1.08);
+    transform: translateY(-40%) scale(1.05);
 }
 
 /* Mobile menu toggle */
@@ -955,96 +961,55 @@ section {
 }
 
 .footer-bottom {
-    text-align: center;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
     color: var(--text-light);
 }
 
-/* Brand Reveal - Window Uncovering Effect */
-.brand-reveal {
-    background: #ffffff;
-    color: var(--primary);
+.footer-bottom-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    position: relative;
+}
+
+.footer-center {
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    flex: 1;
+}
+
+.footer-right {
+    position: absolute;
     right: 0;
-    z-index: 1;
-    height: 40vh;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 2rem;
-    overflow: hidden;
+    bottom: 0;
 }
 
-.brand-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.brand-content h2 {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(3rem, 17vw, 14rem);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.04em;
-    color: var(--primary);
-    line-height: 1;
-    width: 100%;
-    white-space: nowrap;
-}
-
-.brand-content p {
-    font-size: 1.2rem;
+.aws-partner {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
     color: var(--accent);
     font-weight: 500;
 }
 
-.credit {
-    position: absolute;
-    bottom: 1.5rem;
-    right: 2rem;
-    font-size: 0.85rem;
-    color: var(--text-light);
+.footer-credit {
+    margin: 0;
 }
 
-/* Spacer for the fixed brand reveal */
-.brand-spacer {
-    height: 40vh;
-    min-height: 200px;
-    position: relative;
-    z-index: 5;
+.footer-credit a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+    color: var(--accent);
 }
 
 /* Landscape orientation fix */
 @media (orientation: landscape) and (max-height: 500px) {
-    .brand-reveal {
-        height: 50vh;
-        min-height: 150px;
-        padding: 1rem 2rem;
-    }
-    
-    .brand-content h2 {
-        font-size: clamp(2rem, 8vw, 4rem);
-        letter-spacing: -2px;
-        margin-bottom: 0.25rem;
-    }
-    
-    .brand-content p {
-        font-size: 0.9rem;
-    }
-    
-    .brand-spacer {
-        height: 50vh;
-        min-height: 150px;
-    }
+
     
     .credit {
         bottom: 0.5rem;
@@ -1226,7 +1191,7 @@ section {
     .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
     
     .logo-img {
-        height: 45px;
+        height: 70px;
     }
     
     /* Hero Section */
@@ -1455,6 +1420,21 @@ section {
         gap: 2rem;
     }
     
+    .footer-bottom-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .footer-center {
+        text-align: center;
+    }
+    
+    .footer-right {
+        position: static;
+        text-align: center;
+    }
+    
     .footer-col h4 {
         font-size: 1rem;
     }
@@ -1468,25 +1448,7 @@ section {
         font-size: 0.85rem;
     }
     
-    /* Brand reveal */
-    .brand-reveal {
-        padding: 0 1rem;
-    }
-    
-    .brand-content {
-        width: 100%;
-    }
-    
-    .brand-content h2 {
-        font-size: clamp(2.5rem, 14vw, 6rem);
-        letter-spacing: -0.03em;
-        white-space: nowrap;
-        line-height: 1;
-    }
-    
-    .brand-content p {
-        font-size: 1rem;
-    }
+
     
     .credit {
         position: static;
@@ -1519,7 +1481,7 @@ section {
     }
     
     .logo-img {
-        height: 40px;
+        height: 65px;
     }
     
     /* Hero */
@@ -1703,6 +1665,21 @@ section {
         text-align: center;
     }
     
+    .footer-bottom-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .footer-center {
+        text-align: center;
+    }
+    
+    .footer-right {
+        position: static;
+        text-align: center;
+    }
+    
     .footer-col h4 {
         font-size: 1rem;
     }
@@ -1716,21 +1693,7 @@ section {
         font-size: 0.85rem;
     }
     
-    /* Brand */
-    .brand-reveal {
-        padding: 0 0.5rem;
-    }
-    
-    .brand-content h2 {
-        font-size: clamp(2.2rem, 15vw, 4.5rem);
-        letter-spacing: -0.02em;
-        white-space: nowrap;
-        line-height: 1;
-    }
-    
-    .brand-content p {
-        font-size: 0.95rem;
-    }
+
     
     .credit {
         position: static;
@@ -1778,12 +1741,7 @@ section {
         font-size: clamp(1.6rem, 12vw, 2.2rem);
     }
     
-    /* Brand - Extra small */
-    .brand-content h2 {
-        font-size: clamp(1.8rem, 16vw, 3.5rem);
-        letter-spacing: -0.02em;
-        white-space: nowrap;
-    }
+
     
 
     
@@ -1852,6 +1810,21 @@ section {
         font-size: 0.85rem;
     }
     
+    .footer-bottom-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .footer-center {
+        text-align: center;
+    }
+    
+    .footer-right {
+        position: static;
+        text-align: center;
+    }
+    
     .footer-bottom p {
         font-size: 0.8rem;
     }
@@ -1861,7 +1834,5 @@ section {
         font-size: 0.7rem;
     }
     
-    .brand-content p {
-        font-size: 0.85rem;
-    }
+
 }
