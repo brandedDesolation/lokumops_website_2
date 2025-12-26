@@ -93,16 +93,30 @@ h3, h4, h5, h6 {
     align-items: center;
     position: relative;
     overflow: visible;
+    gap: 1rem;
 }
 
 .logo-img {
-    height: 135px;
+    height: 125px;
     width: auto;
     transition: transform 0.3s ease;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 0;
+}
+
+.aws-partner-logo {
+    height: 55px;
+    width: auto;
+    margin-left: 140px;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.aws-partner-logo:hover {
+    transform: translateY(-2px);
+    opacity: 1;
 }
 
 .logo:hover .logo-img {
@@ -419,7 +433,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 0;
+    padding: 2rem 0 2rem 2rem;
     cursor: pointer;
 }
 
@@ -460,7 +474,7 @@ section {
 }
 
 .solution-content p {
-    padding: 0 0 1rem;
+    padding: 0 0 1rem 2rem;
     color: var(--text-light);
     font-size: 0.95rem;
     line-height: 1.7;
@@ -468,7 +482,7 @@ section {
 
 .solution-content ul {
     list-style: none;
-    padding: 0 0 2rem;
+    padding: 0 0 2rem 2rem;
 }
 
 .solution-content li {
@@ -624,10 +638,10 @@ section {
 /* Clients Section */
 .clients-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -666,52 +680,7 @@ section {
     transform: scale(1.1);
 }
 
-/* Demsay logo - invert for visibility on light background */
-.client-logo.demsay-logo img {
-    filter: invert(1) grayscale(100%) opacity(0.6);
-}
-
-.client-logo.demsay-logo:hover img {
-    filter: invert(1) grayscale(0%) opacity(1) scale(1.1);
-    transform: scale(1.1);
-}
-
-.client-logo.aws-logo svg {
-    width: 80px;
-    max-width: 80px;
-    height: auto;
-    opacity: 0.6;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    z-index: 1;
-}
-
-.client-logo.aws-logo svg path {
-    transition: fill 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.client-logo.aws-logo svg path:first-child {
-    fill: #6d6d6d;
-}
-
-.client-logo.aws-logo svg path:nth-child(2),
-.client-logo.aws-logo svg path:nth-child(3) {
-    fill: #9d9d9d;
-}
-
-.client-logo.aws-logo:hover svg {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.client-logo.aws-logo:hover svg path:first-child {
-    fill: #252F3E;
-}
-
-.client-logo.aws-logo:hover svg path:nth-child(2),
-.client-logo.aws-logo:hover svg path:nth-child(3) {
-    fill: #F90;
-}
+/* Client logo styles */
 
 /* Social Section */
 .social {
@@ -1194,6 +1163,11 @@ section {
         height: 70px;
     }
     
+    .aws-partner-logo {
+        height: 38px;
+        margin-left: 90px;
+    }
+    
     /* Hero Section */
     .hero {
         padding: 6rem 0 4rem;
@@ -1315,11 +1289,6 @@ section {
     .client-logo img {
         max-width: 120px;
         max-height: 50px;
-    }
-    
-    .client-logo.aws-logo svg {
-        width: 70px;
-        max-width: 70px;
     }
     
     /* Apps */
@@ -1484,6 +1453,11 @@ section {
         height: 65px;
     }
     
+    .aws-partner-logo {
+        height: 32px;
+        margin-left: 85px;
+    }
+    
     /* Hero */
     .hero {
         padding: 5rem 0 3rem;
@@ -1553,7 +1527,15 @@ section {
     }
     
     .solution-header {
-        padding: 1.5rem 0;
+        padding: 1.5rem 0 1.5rem 1.5rem;
+    }
+    
+    .solution-content p {
+        padding-left: 1.5rem;
+    }
+    
+    .solution-content ul {
+        padding-left: 1.5rem;
     }
     
     .solution-header h3 {
@@ -1592,11 +1574,6 @@ section {
     .client-logo img {
         max-width: 100px;
         max-height: 40px;
-    }
-    
-    .client-logo.aws-logo svg {
-        width: 60px;
-        max-width: 60px;
     }
     
     /* Apps */
@@ -1741,15 +1718,6 @@ section {
         font-size: clamp(1.6rem, 12vw, 2.2rem);
     }
     
-
-    
-
-    
-    .client-logo.aws-logo svg {
-        width: 50px;
-        max-width: 50px;
-    }
-    
     /* Expertise cards - Extra small */
     .expertise-card h3 {
         font-size: 1.1rem;
@@ -1760,6 +1728,10 @@ section {
     }
     
     /* Solution cards - Extra small */
+    .solution-header {
+        padding: 1.25rem 0 1.25rem 1rem;
+    }
+    
     .solution-header h3 {
         font-size: 1rem;
     }
@@ -1767,6 +1739,14 @@ section {
     .solution-content p,
     .solution-content li {
         font-size: 0.85rem;
+    }
+    
+    .solution-content p {
+        padding-left: 1rem;
+    }
+    
+    .solution-content ul {
+        padding-left: 1rem;
     }
     
     /* Benefit cards - Extra small */

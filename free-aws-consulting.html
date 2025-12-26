@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free AWS Consulting - Lokum Ops | AWS Partner</title>
+    <meta name="description" content="Get free AWS consulting from certified AWS partners. Expert guidance for your cloud journey.">
+    <meta name="keywords" content="Free AWS Consulting, AWS Partner, Cloud Consulting, AWS Migration, Cloud Strategy, AWS Architecture Review, Cost Optimization">
+    <link rel="icon" type="image/x-icon" href="assets/favicon_io/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon_io/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon_io/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .consulting-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 4rem 4rem;
+            background: white;
+        }
+        
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            max-width: 1200px;
+            width: 100%;
+            align-items: center;
+        }
+        
+        /* Left Side - What We Offer */
+        .offer-side {
+            padding-right: 2rem;
+        }
+        
+        .offer-side h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .offer-side .intro {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        
+        .offer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .offer-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .offer-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .offer-list h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        
+        .offer-list p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .offer-number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            min-width: 30px;
+        }
+        
+        /* Right Side - CTA */
+        .cta-side {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 16px;
+        }
+        
+        .expectations {
+            margin-bottom: 2rem;
+        }
+        
+        .expectations h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .expectations ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .expectations li {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .expectations li::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .cta-content h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .cta-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            padding: 0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .cta-button:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        
+        .back-link {
+            display: block;
+            margin-top: 2rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 968px) {
+            .consulting-hero {
+                padding: 6rem 2rem 3rem;
+            }
+            
+            .split-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .offer-side {
+                padding-right: 0;
+            }
+            
+            .cta-side {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .consulting-hero {
+                padding: 5rem 1.5rem 2rem;
+            }
+            
+            .cta-side {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/lokumops_logo_current.png" alt="Lokum Ops" class="logo-img">
+                <img src="assets/aws Partner.svg" alt="AWS Partner" class="aws-partner-logo">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="index.html#why-us">Why Us</a></li>
+                <li><a href="index.html#apps">Our Apps</a></li>
+                <li><a href="free-aws-consulting.html">Free AWS Consulting</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="menu-overlay"></div>
+
+    <section class="consulting-hero">
+        <div class="split-container">
+            <!-- Left Side - What We Offer -->
+            <div class="offer-side">
+                <h1>Let's talk about your cloud journey</h1>
+                <p class="intro">Whether you're just getting started with AWS or looking to optimize what you already have, we're here to help. No sales pitch, just honest advice from people who've been there.</p>
+                
+                <ul class="offer-list">
+                    <li>
+                        <span class="offer-number">1</span>
+                        <div>
+                            <h3>Understand where you are</h3>
+                            <p>We'll take a look at your current setup and figure out what's working and what could be better.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="offer-number">2</span>
+                        <div>
+                            <h3>Find the quick wins</h3>
+                            <p>There's usually low-hanging fruit when it comes to costs and performance. We'll help you spot them.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="offer-number">3</span>
+                        <div>
+                            <h3>Plan your next steps</h3>
+                            <p>Walk away with a clear idea of what to do next, whether that's with us or on your own.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Right Side - CTA -->
+            <div class="cta-side">
+                <div class="expectations">
+                    <h4>What to expect</h4>
+                    <ul>
+                        <li>30-45 minute video call</li>
+                        <li>No commitment, no pressure</li>
+                        <li>Actionable takeaways</li>
+                        <li>Follow-up summary via email</li>
+                    </ul>
+                </div>
+                
+                <div class="cta-content">
+                    <h2>Ready to chat?</h2>
+                    <p>Drop us a line and we'll find a time that works for you.</p>
+                    <a href="mailto:cloud@lokumops.com?subject=Free AWS Consulting Session&body=Hi Lokum Ops Team,%0D%0A%0D%0AI'd like to schedule a free AWS consulting session.%0D%0A%0D%0AName: %0D%0ACompany: %0D%0AEmail: %0D%0APhone (optional): %0D%0A%0D%0AA bit about what I'm looking for:%0D%0A%0D%0A%0D%0APreferred time to meet:%0D%0A%0D%0A%0D%0AThanks!" class="cta-button">
+                        Get in Touch
+                    </a>
+                </div>
+                
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Hide navbar on scroll down, show on scroll up
+        let lastScrollPos = 0;
+        const navBar = document.querySelector('.nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScrollPos = window.pageYOffset;
+            
+            if (currentScrollPos > 50) {
+                if (currentScrollPos > lastScrollPos) {
+                    navBar.style.transform = 'translateY(-100%)';
+                } else {
+                    navBar.style.transform = 'translateY(0)';
+                }
+            } else {
+                navBar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollPos = currentScrollPos;
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        if (mobileMenuToggle && navMenu && menuOverlay) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            menuOverlay.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
