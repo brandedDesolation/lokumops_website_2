@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemen İngilizce - iOS Uygulaması</title>
+    <meta name="description" content="Hemen İngilizce iOS uygulaması ile İngilizce kelime öğrenin. Reklamsız, gizlilik odaklı, offline çalışır.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Font loading optimization */
+        @font-face {
+            font-family: 'Inter';
+            font-display: swap;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #1d1d1f;
+            background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-display: swap;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Loading spinner */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f5f5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e5e7eb;
+            border-top: 4px solid #007AFF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+        
+        .ios-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+        }
+        
+        .app-icon-large {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            border-radius: 26px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.25);
+            position: relative;
+        }
+        
+        .app-icon-large::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 26px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude;
+        }
+        
+        .app-title {
+            font-size: 56px;
+            font-weight: 800;
+            color: #1d1d1f;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        
+        .app-subtitle {
+            font-size: 28px;
+            font-weight: 600;
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+        
+        .app-description {
+            font-size: 21px;
+            color: #1d1d1f;
+            margin-bottom: 40px;
+            line-height: 1.4;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .download-section {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+        
+        .app-store-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+        
+        .app-store-button:hover {
+            background: #1c1c1e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .app-store-icon {
+            font-size: 24px;
+        }
+        
+        .download-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .download-small {
+            font-size: 13px;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+        
+        .download-large {
+            font-size: 17px;
+            font-weight: 500;
+        }
+        
+        .features-section {
+            padding: 60px 0;
+            background: #f5f5f7;
+        }
+        
+        .features-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 50px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 18px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.25);
+        }
+        
+        .feature-title {
+            font-size: 21px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+        }
+        
+        .feature-text {
+            font-size: 17px;
+            color: #86868b;
+            line-height: 1.4;
+        }
+        
+        .footer-section {
+            padding: 40px 0;
+            text-align: center;
+            background: #1d1d1f;
+            color: #86868b;
+        }
+        
+        .footer-section a {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer-section a:hover {
+            color: #0056CC;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .app-title {
+                font-size: 40px;
+            }
+            
+            .app-subtitle {
+                font-size: 24px;
+            }
+            
+            .app-description {
+                font-size: 19px;
+            }
+            
+            .features-title {
+                font-size: 32px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="hero-section">
+        <div class="container">
+            <div class="ios-badge">
+                <span>📱</span>
+                <span>iOS Uygulaması</span>
+            </div>
+            
+            <div class="app-icon-large">
+                📚
+            </div>
+            
+            <h1 class="app-title">Hemen İngilizce</h1>
+            <p class="app-subtitle">İngilizce Kelime Öğrenmenin En Hızlı Yolu</p>
+            <p class="app-description">
+                iPhone ve iPad'iniz için tasarlanmış modern İngilizce kelime öğrenme uygulaması. 
+                Reklamsız, gizlilik odaklı ve tamamen çevrimdışı çalışır.
+            </p>
+        </div>
+    </div>
+
+    <div class="download-section">
+        <div class="container">
+            <a href="https://apps.apple.com/us/app/hemen-ingilizce/id6738070684" class="app-store-button" target="_blank">
+                <div class="app-store-icon">🍎</div>
+                <div class="download-text">
+                    <div class="download-small">Download on the</div>
+                    <div class="download-large">App Store</div>
+                </div>
+            </a>
+            <p style="font-size: 17px; color: #86868b; margin-top: 16px;">iOS 14.0 veya üzeri gereklidir</p>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <div class="container">
+            <h2 class="features-title">Neden Hemen İngilizce?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">%100 Gizli</h3>
+                    <p class="feature-text">Hiçbir veri toplamıyoruz. Öğrenme ilerlemeniz cihazınızda kalır.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Çevrimdışı Çalışır</h3>
+                    <p class="feature-text">İnternet bağlantısı gerektirmez. Her yerde öğrenmeye devam edin.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚫</div>
+                    <h3 class="feature-title">Reklamsız</h3>
+                    <p class="feature-text">Hiçbir reklam yok. Sadece öğrenmeye odaklanın.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3 class="feature-title">Zengin İçerik</h3>
+                    <p class="feature-text">Özenle seçilmiş İngilizce kelimeler ve örnekler.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Hızlı Öğrenme</h3>
+                    <p class="feature-text">Etkili tekrar algoritması ile kelimeleri unutmayın.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Modern Tasarım</h3>
+                    <p class="feature-text">iOS için özel tasarlanmış temiz ve güzel arayüz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-section">
+        <div class="container">
+            <p>
+                <a href="../index.html">Lokum Ops</a> tarafından geliştirildi • 
+                <a href="hemen-ingilizce-gizlilik.html">Gizlilik Politikası</a> • 
+                <a href="hemen-ingilizce-privacy.html">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Loading spinner control
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            if (loading) {
+                loading.style.opacity = '0';
+                loading.style.transition = 'opacity 0.3s ease-out';
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Fallback: Hide loading after 3 seconds
+        setTimeout(function() {
+            const loading = document.getElementById('loading');
+            if (loading && loading.style.display !== 'none') {
+                loading.style.opacity = '0';
+                loading.style.transition = 'opacity 0.3s ease-out';
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 300);
+            }
+        }, 3000);
+
+        // Font loading optimization
+        if ('fonts' in document) {
+            document.fonts.ready.then(function() {
+                document.body.classList.add('fonts-loaded');
+            });
+        }
+    </script>
+</body>
+</html>
